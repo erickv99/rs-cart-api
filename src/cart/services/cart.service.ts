@@ -1,9 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
-import { v4 } from 'uuid';
-
 import { Cart } from '../models';
-import { PrismaService } from 'src/db/prisma.service';
+import { PrismaService } from '../../db/prisma.service';
+import { v4 } from '../../shared/index';
 
 @Injectable()
 export class CartService {
@@ -27,7 +26,7 @@ export class CartService {
 
     return {
       id: cart.id,
-      items: cart.cart_items.map(item => {
+      items: cart.cart_items.map((item) => {
         return {
           product: {
             id: item.product_id,
@@ -40,7 +39,7 @@ export class CartService {
   }
 
   createByUserId(userId: string) {
-    const id = v4(v4());
+    const id = v4();
     const userCart = {
       id,
       items: [],

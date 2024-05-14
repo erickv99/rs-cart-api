@@ -4,7 +4,7 @@ import { OrderModule } from '../order/order.module';
 
 import { CartController } from './cart.controller';
 import { CartService } from './services';
-import { PrismaService } from 'src/db/prisma.service';
+import { PrismaService } from '../db/prisma.service';
 
 @Module({
   imports: [OrderModule],
